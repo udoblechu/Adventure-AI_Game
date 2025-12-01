@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -28,6 +29,9 @@ app.add_middleware(
 
 app.include_router(story.router, prefix=settings.API_PREFIX)
 app.include_router(job.router, prefix=settings.API_PREFIX)
+# Default port configuration
+DEFAULT_PORT = int(os.getenv("PORT", 8000))
+DEFAULT_HOST = os.getenv("HOST", "0.0.0.0")
 
 if __name__ == "__main__":
     import uvicorn
