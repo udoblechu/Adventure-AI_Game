@@ -22,7 +22,7 @@ app = FastAPI(
 # This configuration allows requests from the origins defined in settings.ALLOWED_ORIGINS and supports all HTTP methods and headers for cross-origin requests.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,  # E.g., "https://adventure-ai-seven.vercel.app"
+    allow_origins=["*"],  # E.g., "https://adventure-ai-seven.vercel.app"
     allow_credentials=True,
     allow_methods=["*"],  # Allows GET, POST, PUT, DELETE, etc.
     allow_headers=["*"],  # Allows Content-Type, Authorization, etc.
